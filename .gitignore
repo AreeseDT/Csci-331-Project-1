@@ -1,0 +1,8 @@
+# Editor configurations
+./**/.vscode/
+./**/.idea/
+
+# Build outputs
+./**/bin/
+./**/obj
+
