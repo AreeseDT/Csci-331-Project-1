@@ -1,0 +1,8 @@
+A line that starts with the character 'e' represents an edge in the graph. Following the 'e' there are 3 parameters separated by a space.
+    -The first is the first node's name
+    -The second is the second node's name
+    -The third must be an integer and it is the weight of the edge in the graph
+
+A line that starts with the character 'h' represents a heuristic value for a graph. Following the h there are 2 parameters.
+    -The first is the name of the node
+    -The second is an integer that is the heuristic value for that node
