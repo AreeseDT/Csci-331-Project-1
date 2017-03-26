@@ -1,28 +1,20 @@
-/**
- * Nick Marchionda - Graph.java
- **/
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Random;
+import java.util.*;
+
 /**
  * Class used to represent a graph and it's vertices using an adjacency list and matrix
  */
 public class Graph{
 
-    private static final int NOT_CONNECTED_VALUE = 0; //The value that represents a non-connection in the adjacency matrix
-
     //the adjacency list used to represent the graph
     private HashMap<String, ArrayList<Node>> adjacencyList;
+    private HashMap<String, Integer> heuristicValues;
     
     /**
-     * The constructor for the graph class.
-     *
+     * Constructor
      */
     public Graph(){
         this.adjacencyList = new HashMap<String, ArrayList<Node>>();
+        this.heuristicValues = new HashMap<String, Integer>();
     }
 
     /**
@@ -47,6 +39,23 @@ public class Graph{
         this.adjacencyList.get(endNode).add(new Node(startNode, weight));
     }
 
+    /**
+     * Associates a value with a node for the heuristic used in A*
+     * @param nodeName the node
+     * @param value the value associated with the node
+     */
+    public void addHeuristicValue(String nodeName, int value){
+        this.heuristicValues.put(nodeName, value);
+    }
+
+    public void displayEdges(){
+        for (Map.Entry<String, ArrayList<Node>> entry : this.adjacencyList.entrySet()){
+            System.out.println("Node " + entry.getKey() + " has edges:");
+            for (Node n:entry.getValue()) {
+                System.out.println(n.name + ": " + n.weight);
+            }
+        }
+    }
 
     /**
      * Class to hold the data in the adjacency list, holds the name of the vertex and the weight
