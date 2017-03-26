@@ -6,3 +6,5 @@ A line that starts with the character 'e' represents an edge in the graph. Follo
 A line that starts with the character 'h' represents a heuristic value for a graph. Following the h there are 2 parameters.
     -The first is the name of the node
     -The second is an integer that is the heuristic value for that node
+
+A line that is empty or starts with a '#' character is ignored
