@@ -37,6 +37,6 @@ public class InputReader {
             System.out.println(e.getMessage());
             System.exit(-1);
         }
-	return graph;
+	    return graph;
     }
 }

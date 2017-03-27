@@ -6,8 +6,8 @@ import java.util.*;
 public class Graph{
 
     //the adjacency list used to represent the graph
-    private HashMap<String, ArrayList<Node>> adjacencyList;
-    private HashMap<String, Integer> heuristicValues;
+    public HashMap<String, ArrayList<Node>> adjacencyList;
+    public HashMap<String, Integer> heuristicValues;
     
     /**
      * Constructor
@@ -55,6 +55,16 @@ public class Graph{
                 System.out.println(n.name + ": " + n.weight);
             }
         }
+    }
+
+    public boolean containsNode(String node) {
+        for (Map.Entry<String, ArrayList<Node>> entry : this.adjacencyList.entrySet()) {
+            if(entry.getKey().equals(node)) return true;
+            for (Node n : entry.getValue()) {
+                if(n.name.equals(node)) return true;
+            }
+        }
+        return false;
     }
 
     /**
