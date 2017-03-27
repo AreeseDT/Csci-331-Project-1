@@ -1,8 +1,8 @@
 # Editor configurations
-./**/.vscode/
-./**/.idea/
+**/.vscode/
+**/.idea/
+**/*.iml
 
 # Build outputs
-./**/bin/
-./**/obj
-
+**/bin/
+**/obj
