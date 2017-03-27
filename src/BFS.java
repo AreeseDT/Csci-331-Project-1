@@ -1,3 +1,6 @@
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -31,6 +34,24 @@ public class BFS {
             end  = input.nextLine();
         }
 
+    }
+
+    static HashMap<String, Edge> search(Graph graph, String start, String end) {
+        throw new NotImplementedException();
+    }
+
+    static void printPath(HashMap<String, Edge> path, String start, String end) {
+
+        int totalCost = 0;
+
+        Edge node = path.get(end);
+        String previous = node.from;
+
+        while(!previous.equals(start)) {
+            totalCost += node.to.weight;
+            node = path.get(node.from);
+            previous = node.from;
+        }
     }
 
 }

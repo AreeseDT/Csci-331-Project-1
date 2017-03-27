@@ -71,7 +71,7 @@ public class Graph{
      * Class to hold the data in the adjacency list, holds the name of the vertex and the weight
      * of the connection
      */
-    private class Node{
+    public class Node{
         public String name;
         public int weight;
 
