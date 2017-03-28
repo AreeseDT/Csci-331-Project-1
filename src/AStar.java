@@ -16,7 +16,7 @@ public class AStar {
         Scanner input = new Scanner(System.in);
 
         System.out.println("Enter a starting point:");
-        String start = input.nextLine();
+        String start = input.nextLine().toUpperCase();
         while(!campus.containsNode(start)) {
             System.out.print(start);
             System.out.println(" is not a valid starting point.");
@@ -24,7 +24,7 @@ public class AStar {
         }
 
         System.out.println("Enter an ending point:");
-        String end = input.nextLine();
+        String end = input.nextLine().toUpperCase();
         while(!campus.containsNode(end)) {
             System.out.print(end);
             System.out.println(" is not a valid ending point.");
