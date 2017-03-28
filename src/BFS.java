@@ -52,7 +52,7 @@ public class BFS {
     public static HashMap<String, Node> bfs(Graph graph, String start, String end) {
         HashMap<String, Node> pathMap = new HashMap<>();
 
-        Queue<Node> queue = new PriorityQueue<>();
+        Queue<Node> queue = new LinkedList<>();
         queue.add(new Node(start, 0));
 
         ArrayList<String> visited = new ArrayList<>();
