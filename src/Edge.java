@@ -3,9 +3,9 @@
  */
 public class Edge {
     public String from;
-    public Graph.Node to;
+    public Node to;
 
-    public Edge(String from, Graph.Node to) {
+    public Edge(String from, Node to) {
         this.from = from;
         this.to = to;
     }
