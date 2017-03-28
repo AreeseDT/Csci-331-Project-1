@@ -20,7 +20,7 @@ public class BFS {
         while(!graph.containsNode(start)) {
             System.out.print(start);
             System.out.println(" is not a valid starting point.");
-            start  = input.nextLine();
+            start  = input.nextLine().toUpperCase();
         }
 
         System.out.println("Enter an ending point:");
@@ -28,7 +28,7 @@ public class BFS {
         while(!graph.containsNode(end)) {
             System.out.print(end);
             System.out.println(" is not a valid ending point.");
-            end  = input.nextLine();
+            end  = input.nextLine().toUpperCase();
         }
 
         HashMap<String, Node> pathMap = bfs(graph, start, end);
@@ -98,9 +98,9 @@ public class BFS {
             path.add(end);
         }
         Collections.reverse(path);
-        System.out.println("Total weight: " + cost);
 
-        path.forEach(System.out::println);
+        System.out.printf("%-20s %d%n", "Total Weight:", cost);
+        System.out.printf("%-20s %s%n", "Path:", String.join(" -> ", path));
     }
 
 }

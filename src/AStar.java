@@ -20,7 +20,7 @@ public class AStar {
         while(!campus.containsNode(start)) {
             System.out.print(start);
             System.out.println(" is not a valid starting point.");
-            start  = input.nextLine();
+            start  = input.nextLine().toUpperCase();
         }
 
         System.out.println("Enter an ending point:");
@@ -28,12 +28,11 @@ public class AStar {
         while(!campus.containsNode(end)) {
             System.out.print(end);
             System.out.println(" is not a valid ending point.");
-            end  = input.nextLine();
+            end  = input.nextLine().toUpperCase();
         }
 
-        List<String> path = getPath(aStar(start, end, campus), end);
-        path.forEach(System.out::println);
-
+        HashMap<String, Node> path = aStar(start, end, campus);
+        printPath(path, end);
     }
 
     /**
@@ -79,7 +78,7 @@ public class AStar {
      * @param end the final node
      * @return a list that is the path in order
      */
-    private static List<String> getPath(HashMap<String, Node> map, String end){
+    private static void printPath(HashMap<String, Node> map, String end){
         List<String> path = new ArrayList<>();
         path.add(end);
         Node n;
@@ -91,7 +90,7 @@ public class AStar {
             path.add(end);
         }
         Collections.reverse(path);
-        System.out.println("Total weight: " + totalWeight);
-        return path;
+        System.out.printf("%-20s %d%n", "Total Weight:", totalWeight);
+        System.out.printf("%-20s %s%n", "Path:", String.join(" -> ", path));
     }
 }

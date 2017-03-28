@@ -7,7 +7,6 @@ import java.util.*;
  */
 public class Backtracking {
 
-
     public static void main(String[] args) {
         if (args.length != 1){
             System.out.println("Usage: Backtracking <inputfile.txt>");
@@ -22,7 +21,7 @@ public class Backtracking {
         while(!campus.containsNode(start)) {
             System.out.print(start);
             System.out.println(" is not a valid starting point.");
-            start  = input.nextLine();
+            start  = input.nextLine().toUpperCase();
         }
 
         System.out.println("Enter an ending point:");
@@ -30,19 +29,18 @@ public class Backtracking {
         while(!campus.containsNode(end)) {
             System.out.print(end);
             System.out.println(" is not a valid ending point.");
-            end  = input.nextLine();
+            end  = input.nextLine().toUpperCase();
         }
 
         ArrayList<String> path = new ArrayList<>(); //the list to hold the path
         int i = 0; //accumulator for total weight
         solveBacktracking(start, end, campus, i, path, new ArrayList<String>());
+        path.add(start);
         //Reverse the path list because its in the reverse order we visited the nodes in
         Collections.reverse(path);
-        System.out.println("Path: ");
-        //printing the start node
-        System.out.println(start);
-        //printing each node in the path
-        path.forEach(System.out::println);
+
+        //Print the path
+        System.out.printf("%-20s %s%n", "Path:", String.join(" -> ", path));
     }
 
     /**
@@ -60,7 +58,7 @@ public class Backtracking {
         visited.add(currNode);
         //if the currNode is the destination then end.
         if (currNode.equals(finalNode)){
-            System.out.println("Total cost: " + totalCost);
+            System.out.printf("%-20s %d%n", "Total Weight:", totalCost);
             return true;
         }
         else {
