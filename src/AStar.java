@@ -45,7 +45,7 @@ public class AStar {
      */
     public static HashMap<String, Node> aStar(String start, String end, Graph graph){
         ArrayList<String> visited = new ArrayList<>();
-        Queue<Node> queue = new PriorityQueue<Node>();
+        Queue<Node> queue = new PriorityQueue<Node>(); //Using priority queue to auto sort the nodes by least cost
         Node current;
         queue.add(new Node(start, Integer.MAX_VALUE)); //Start first node at max value in queue so its updated quickly
         HashMap<String, Node> pathMap = new HashMap<>();
@@ -64,6 +64,7 @@ public class AStar {
 
                 //Compare the child's cost plus its heuristic to the current node's cost
                 if ((n.weight + graph.heuristicValues.get(n.name)) < current.weight || !queue.contains(n)){
+                    //Adding a new node with a weight that is the heuristic value plus the path weight
                     queue.add(new Node(n.name, n.weight + graph.heuristicValues.get(n.name)));
                     pathMap.put(n.name, new Node(current.name, n.weight));
                 }
