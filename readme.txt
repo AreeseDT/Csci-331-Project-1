@@ -1,5 +1,7 @@
 Intro to Intelligent Systems - Project 1
 
+Nick Marchionda and Adam Reese
+
 Running the program:
 -Java Version 8
 -Each search has a separate main file
